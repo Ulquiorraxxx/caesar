@@ -4,8 +4,9 @@ alfabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 def sifresana(teksts, rotacija):
     rezultats = ""
     for c in teksts:
+        c=c.upper()
         if (alfabets.find(c) == -1):
-            rezultats += c
+            rezultats+=c
         else:
             rezultats += (alfabets[(alfabets.find(c) + rotacija) % len(alfabets)])
     return rezultats
@@ -13,16 +14,18 @@ def sifresana(teksts, rotacija):
 def atsifresana(teksts, rotacija):
     rezultats = ""
     for c in teksts:
+        c=c.upper()
         if (alfabets.find(c) == -1):
             rezultats += c
         else:
             rezultats += (alfabets[(alfabets.find(c) - rotacija) % len(alfabets)])
     return rezultats
-#
+
 def fullatsifresana(teksts, n):
     rezultats = ""
     
     for c in teksts:
+        c=c.upper()
         if (alfabets.find(c) == -1):
             rezultats += c
         else:
@@ -46,9 +49,11 @@ elif mode == 2:
     text = input("Enter the text: ")
     rotation = int(input("Enter the rotation: "))
     print("Decrypted: " + atsifresana(text, rotation))
-#ja ievada mode=3 tad izvada 26 tekstus ar funckiju fullatsifresana
+#ja ievada mode=3 tad izvada 2 textus uzreiz
 elif mode == 3:
     text = input("enter the text: ")
-    for n in range(26):
+    for n in range(27):
         
-        print(str(n+1) + ": " + fullatsifresana(text, n+1))
+        print(str(n) + ": " + fullatsifresana(text, n))
+else:
+    print("Wrong input")
